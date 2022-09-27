@@ -1,6 +1,8 @@
 const enterButton =
 document.getElementById('enter');
 // const form = document.getElementById('list')
+const showDateButton = document.getElementById("show-date");
+const dateText = document.getElementById("date")
 
 enterButton.addEventListener('click', () => {
     const ul = document.getElementById("list");
@@ -25,5 +27,9 @@ enterButton.addEventListener('click', () => {
         ul.appendChild(newListItem);
     }
     );
+
+    showDateButton.addEventListener("click", () => {
+        dateText.innerText = Date();
+    });
 
 
