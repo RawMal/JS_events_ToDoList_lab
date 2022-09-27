@@ -22,8 +22,19 @@ enterButton.addEventListener('click', () => {
             ul.removeChild(newListItem);
         });
 
+        // creates Checkbox
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.addEventListener("change", () => {
+            newListItem.className = "done";
+        });
+
+        newListItem.appendChild(checkbox);
+
+        //deletes task
         newListItem.appendChild(deleteButton);
 
+        //adds task
         ul.appendChild(newListItem);
     }
     );
