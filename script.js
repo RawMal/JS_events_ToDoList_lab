@@ -12,23 +12,17 @@ enterButton.addEventListener('click', () => {
         newListItem.innerText = input;
 
         //creating the delete Button
-
         const deleteButton = document.createElement('button');
         deleteButton.innerText = "Delete";
-
+        
+        //Listening to the delete
         deleteButton.addEventListener("click", () =>{
-            ul.removeChild(task);
+            ul.removeChild(newListItem);
+        });
 
-        })
+        newListItem.appendChild(deleteButton);
 
-        task.appendChild(task);
-        
-
-        
-
-        
-
-        form.appendChild(task);
+        ul.appendChild(newListItem);
     }
     );
 
