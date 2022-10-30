@@ -1,46 +1,50 @@
-const enterButton =
-document.getElementById('enter');
-// const form = document.getElementById('list')
-const showDateButton = document.getElementById("show-date");
-const dateText = document.getElementById("date")
+const button = document.getElementById("enter");
 
-enterButton.addEventListener('click', () => {
-    const ul = document.getElementById("list");
+button.addEventListener("click",()=>{
+    const input = document.getElementById("new-todo").value 
+    const listItem = document.createElement("li")
+    const completedList = document.getElementById("completed_list")
+    listItem.innerText = input;
 
-        const input = document.getElementById('new-todo').value;
-        
-        //Lists Item
-        const newListItem = document.createElement("li");
-        newListItem.innerText = input;
+    const deleteBtn = document.createElement("button")
+    deleteBtn.innerText ="Delete"
 
-        //creating the delete Button
-        const deleteButton = document.createElement('button');
-        deleteButton.innerText = "Delete";
-        
-        //Listening to the delete
-        deleteButton.addEventListener("click", () =>{
-            ul.removeChild(newListItem);
-        });
+    const checkBox = document.createElement("input")
+    checkBox.type = "checkbox"
 
-        // creates Checkbox
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.addEventListener("change", () => {
-            newListItem.className = "done";
-        });
+    listItem.appendChild(deleteBtn);
+    listItem.appendChild(checkBox);
+    list.appendChild(listItem)
+    
+        deleteBtn.addEventListener("click",()=>{
+            list.removeChild(listItem);
+        })
 
-        newListItem.appendChild(checkbox);
+    const completedItem = document.createElement("li")
+    completedItem.innerText = input;
+    const deleteCompletedBtn = document.createElement("button")
+    deleteCompletedBtn.innerText ="Delete"
+    completedItem.appendChild(deleteCompletedBtn)
 
-        //deletes task
-        newListItem.appendChild(deleteButton);
+        deleteCompletedBtn.addEventListener("click",()=>{
+            completedList.removeChild(completedItem);
+        })
 
-        //adds task
-        ul.appendChild(newListItem);
-    }
-    );
+    
+        checkBox.addEventListener("click",()=>{
+            
+            listItem.style.backgroundColor = "#d9dad7";
+            completedItem.style.backgroundColor = "white";
+            completedList.appendChild(completedItem)
+        })
+})
 
-    showDateButton.addEventListener("click", () => {
-        dateText.innerText = Date();
-    });
+const dateButton = document.getElementById("date");
+const showDate = document.getElementById("show_date");
 
-
+dateButton.addEventListener("click", () => {
+    showDate.innerText = "";
+    const date = document.createElement("p");
+    date.innerText = Date();
+    showDate.appendChild(date);
+});§
